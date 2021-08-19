@@ -7,10 +7,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
+
 body,
 html {
   background-color: #def1f3;
@@ -18,6 +15,8 @@ html {
   height: 100%;
   font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .side-nav {
   background-color: #070707;
@@ -170,6 +169,8 @@ ul li {
   background-position: center;
   background-size: cover;
   position: relative;
+  right: 3%;
+  object-fit: cover;
   overflow: hidden;
   background-repeat: no-repeat;
 }
@@ -192,7 +193,9 @@ ul li {
 }
 .fa-bars {
   opacity: 0;
-  margin-left: 1.5rem;
+  border: 1px solid #333;
+  padding: 0.1rem 2rem;
+  margin-left: 1.3rem;
 }
 .fa-times {
   opacity: 0;
@@ -276,11 +279,11 @@ ul li {
 .projects-header {
   text-align: center;
   max-width: 95px;
-  margin: 8rem auto;
+  margin: auto;
+  color: lightblue;
 }
 .project-img-container {
   max-width: 400px;
-  width: 100%;
   height: 200px;
 }
 .project-img {
@@ -332,6 +335,7 @@ ul li {
   gap: 5rem;
   flex-wrap: wrap;
 }
+
 .underline {
   border-bottom: 1px solid #314646;
 }
@@ -426,6 +430,9 @@ ul li {
     font-size: 2rem;
     opacity: 1;
     cursor: pointer;
+    border: 1px solid #333;
+    padding: 0.1rem 2rem;
+    margin-left: 1.3rem;
   }
   .fa-bars {
     color: white;
@@ -437,12 +444,19 @@ ul li {
     margin-top: 0;
     display: block;
   }
+  .links-container ul li {
+    margin-left: 0.8rem;
+  }
+  .links-container ul li:hover {
+    border-left-style: 1px solid rgb(228, 50, 50);
+  }
   .links-container {
     background-color: black;
     width: 100%;
     position: absolute;
     overflow: hidden;
-    top: 2rem;
+    right: 1.01rem;
+    top: 3rem;
     z-index: 1000;
     text-align: center;
     /* right: 5rem; */
@@ -460,11 +474,11 @@ ul li {
   .bars-cont {
     position: fixed;
     top: 0;
-    height: 2rem;
-    left: 0;
+    height: 3rem;
+    /* left: 0; */
+    right: 1.01rem;
     z-index: 999;
-    width: 100vw;
-
+    width: 100%;
     background-color: rgb(11, 73, 73);
   }
   .intro-sect {

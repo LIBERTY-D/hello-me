@@ -169,14 +169,6 @@ const cover = document.querySelector(".cover-mode");
 const about = document.querySelector(".about");
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const matchedLink = e.currentTarget.id;
-
-    const uniqueArticle = document.querySelector(`.${matchedLink}`);
-    window.scrollTo({
-      top: uniqueArticle.offsetTop,
-      left: 0,
-    });
     const linksContainer = document.querySelector(".links-container");
     linksContainer.style.height = 0;
     times.classList.remove("block");
