@@ -171,7 +171,8 @@ ul li {
   background-size: cover;
   position: relative;
   top: 10%;
-  right: 2.5%;
+  margin: auto;
+  /* right: 2.5%; */
   overflow: hidden;
   background-repeat: no-repeat;
 }
@@ -206,7 +207,7 @@ ul li {
 .contact,
 .skills,
 .about {
-  margin-top: 0.5rem;
+  padding-top: 3.5rem;
 }
 
 .title-container {
