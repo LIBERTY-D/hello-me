@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body,
@@ -19,7 +20,7 @@ html {
   overflow-y: scroll;
 }
 .side-nav {
-  background-color: #070707;
+  background-color: #1a1818;
   width: 200px;
   height: 100%;
   position: fixed;
