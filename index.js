@@ -43,6 +43,9 @@ const form = document.getElementById("my-form");
 const message = document.getElementById("message");
 const username = document.getElementById("name");
 const email = document.getElementById("email");
+const submitModal = document.querySelector(".submit-modal");
+const overlaySubmit = document.querySelector(".overlay-submit");
+const closeModal = document.querySelector(".close-modal");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!username.value) {
@@ -61,6 +64,9 @@ form.addEventListener("submit", async (e) => {
     username.classList.add("success");
     message.classList.add("success");
     email.classList.add("success");
+    submitModal.classList.add("show-submit-modal");
+    overlaySubmit.classList.add("show-overlay-modal");
+
     try {
       await fetch("https://ancient-coast-86308.herokuapp.com/", {
         method: "POST",
@@ -83,13 +89,18 @@ form.addEventListener("submit", async (e) => {
         username.classList.remove("success");
         message.classList.remove("success");
         email.classList.remove("success");
-      }, 3000);
+        submitModal.classList.remove("show-submit-modal");
+        overlaySubmit.classList.remove("show-overlay-modal");
+      }, 5000);
     } catch (err) {
       console.log(err);
     }
   }
 });
-
+closeModal.onclick = function () {
+  overlaySubmit.classList.remove("show-overlay-modal");
+  submitModal.classList.remove("show-submit-modal");
+};
 const btns = document.querySelectorAll(".btn");
 const links = document.querySelectorAll(".link");
 let job = document.querySelector(".job");
@@ -193,3 +204,53 @@ times.addEventListener("click", () => {
   times.classList.remove("block");
   bars.classList.add("fa-bars");
 });
+
+const projectContainer = document.querySelector(".projects-container");
+const arrayOfMyProjects = [
+  {
+    id: 1,
+    url: "https://movies-all-app.netlify.app/home.html",
+    image: "./projects-img/movies.png",
+  },
+  {
+    id: 2,
+    url: "https://furnitures-app.herokuapp.com/furnitures",
+    image: "./projects-img/furnitures.png",
+  },
+  {
+    id: 3,
+    url: "https://hearts-restauarant.netlify.app/",
+    image: "./projects-img/hearts.png",
+  },
+  {
+    id: 4,
+    url: "https://in-progress.netlify.app/",
+    image: "./projects-img/coming-soon.png",
+  },
+  {
+    id: 5,
+    url: "https://landing-iphone.netlify.app/",
+    image: "./projects-img/landing-page.png",
+  },
+];
+const projects = arrayOfMyProjects
+  .map((project) => {
+    return `<a href="${project.url}" target="_blank">
+          <div class="projects-main">
+            <div class="project">
+              <div class="project-img-container">
+                <img
+                  src="${project.image}"
+                  class="project-img"
+                  alt="img"
+                />
+              </div>
+            </div>
+            <div class="project-overlay">
+              <h2>Visit Project</h2>
+            </div>
+          </div>
+        </a>`;
+  })
+  .join("");
+projectContainer.innerHTML = projects;
