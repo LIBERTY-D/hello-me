@@ -8,13 +8,13 @@ const cardData = [
   },
   {
     img: "./html.jpg",
-    head_desc: "html",
+    head_desc: "html5",
     card_desc:
       "Use Html the structure of my webpage and together with css it gives the page a good lay out",
   },
   {
     img: "./react.jpg",
-    head_desc: "React",
+    head_desc: "ReactJs",
     card_desc:
       "This is a javascript framework which iam well versed in.If i decide to use a framework,then React is what i would use",
   },
@@ -254,3 +254,56 @@ const projects = arrayOfMyProjects
   })
   .join("");
 projectContainer.innerHTML = projects;
+// DARK THEME
+const dark = document.querySelector(".dark");
+const light = document.querySelector(".light");
+const lightDark = document.querySelector(".light-dark");
+const para = document.querySelector(".para");
+const overlayDark = document.querySelector(".overlay-dark");
+const aboutHead = document.querySelector(".about-head");
+const reserved = document.querySelector(".reserved");
+const dev = document.querySelector(".dev h2");
+function setNewStyle() {
+  para.style.color = "white";
+  aboutHead.style.color = "white";
+  dev.style.color = "lightblue";
+  reserved.style.color = "white";
+}
+function defaultStyle() {
+  para.style.color = " #282d2e";
+  aboutHead.style.color = " #282d2e";
+  dev.style.color = " #282d2e";
+  reserved.style.color = "rgb(49, 46, 46)";
+}
+let storageTheme = "light";
+function setTheme(theme) {
+  localStorage.setItem("theme", theme);
+}
+function getTheme(theme) {
+  let userTheme = localStorage.getItem(theme);
+  if (userTheme) {
+    return (storageTheme = userTheme);
+  } else {
+    storageTheme = "light";
+  }
+}
+dark.onclick = function () {
+  lightDark.style.right = "50%";
+  overlayDark.classList.add("show-theme");
+  setTheme("dark");
+  setNewStyle();
+};
+light.onclick = function () {
+  lightDark.style.right = "0%";
+  overlayDark.classList.remove("show-theme");
+  setTheme("light");
+  defaultStyle();
+};
+window.onload = function () {
+  const theme = getTheme("theme");
+  if (theme === "dark") {
+    overlayDark.classList.add("show-theme");
+    lightDark.style.right = "50%";
+    setNewStyle();
+  }
+};
